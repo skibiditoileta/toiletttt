@@ -1,6 +1,6 @@
 <?php
 $ip = $_SERVER['REMOTE_ADDR'];
-$discordWebhook = "YOUR_DISCORD_WEBHOOK_URL";
+$discordWebhook = "https://discord.com/api/webhooks/1215341442495684619/EI52nygxr-EO1T3xfIQD2crB5WIMPAA4X8aiPhn_kIr3Fs6M20KGAT-Lk0PrKUYu10sb";
 
 $message = "New user joined the website. IP: $ip";
 
